@@ -35,68 +35,68 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-danger" id="9">9PM</div>
-            <div class="col-sm-10">
+                <div class="col-1 list-group-item list-group-item-danger" id="9">9AM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
 
 
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-danger" id="10">10AM</div>
-            <div class="col-sm-10">
+            <div class="col-1 list-group-item list-group-item-danger" id="10">10AM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-danger" id="11">11AM</div>
-            <div class="col-sm-10">
+            <div class="col-1 list-group-item list-group-item-danger" id="11">11AM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-danger" id="12">12AM</div>
-            <div class="col-sm-10">
+            <div class="col-1 list-group-item list-group-item-danger" id="12">12PM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-danger" id="1">1PM</div>
-            <div class="col-sm-10">
+            <div class="col-1 list-group-item list-group-item-danger" id="1">1PM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-danger" id="2">2PM</div>
-            <div class="col-sm-10">
+            <div class="col-1 list-group-item list-group-item-danger" id="2">2PM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-danger" id="3">3PM</div>
-            <div class="col-sm-10">
+            <div class="col-1 list-group-item list-group-item-danger" id="3">3PM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-danger" id="4">4PM</div>
-            <div class="col-sm-10">
+            <div class="col-1 list-group-item list-group-item-danger" id="4">4PM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-1 list-group-item list-group-item-action list-group-item-danger" id="5">5PM</div>
-            <div class="col-sm-10">
+                <div class="col-1 list-group-item list-group-item-danger" id="5">5PM</div>
+            <div class="col-10">
                 <input class="list-group-item list-group-item-action list-group-item-warning"></div>
-            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
 
@@ -106,7 +106,9 @@
     </div>
 </body>
 <script>
+
     $(document).ready(function () {
+
         var date = moment().subtract(10, 'days').calendar();
         var day = moment().format('dddd');
         var currentHour = moment().format('h');
@@ -116,7 +118,6 @@
 
         $('h2').append(date);
         $('h2').append(" (" + day + ")");
-
         $('input').attr('value', '');
 
         function timeLineFilter() {
@@ -130,19 +131,24 @@
                 }
             }
             if (currentAMPM == "PM") {
-                var j = 12;
+                var j = 11;
                 while (j >= 9) {
-                    $('#' + j).attr('class', 'col-sm-1 list-group-item list-group-item-action list-group-item-dark');
+                    $('#' + j).attr('class', 'col-1 list-group-item list-group-item-action list-group-item-dark');
                     $('#' + j).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
                     $('#' + i).next().next().children().attr('class', 'btn btn-secondary btn-lg');
                     j--;
                 }
-                var k = 1;
-                while (currentHour > k) {
-                    $('#' + k).attr('class', 'col-sm-1 list-group-item list-group-item-action list-group-item-dark');
-                    $('#' + k).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
-                    $('#' + i).next().next().children().attr('class', 'btn btn-secondary btn-lg');
-                    k++;
+                if (currentHour = 12) {
+
+                }
+                else {
+                    var k = 1;
+                    while (currentHour > k) {
+                        $('#' + k).attr('class', 'col-1 list-group-item list-group-item-action list-group-item-dark');
+                        $('#' + k).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
+                        $('#' + i).next().next().children().attr('class', 'btn btn-secondary btn-lg');
+                        k++;
+                    }
                 }
             }
             retrieveData();
@@ -174,10 +180,20 @@
 
         }
         timeLineFilter();
+
+        $('div').css('text-align','center');
+        if ($(window).width() <= 800) {
+            var allRows = $('.row');
+            allRows.children().removeClass('col-1').addClass('col-2');
+            allRows.children().next().removeClass('col-10').removeClass('col-2').addClass('col-8')
+            allRows.children().next().next().removeClass('col-8');
+        
+        }
+
+
+
+
     })
-
-
-
 
 </script>
 
