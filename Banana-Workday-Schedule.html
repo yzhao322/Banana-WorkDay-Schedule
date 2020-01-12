@@ -136,16 +136,18 @@
                     $('#' + j).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
                     j--;
                 }
-                if (currentHour = 12) {
-
-                }
-                else {
+                if (currentHour < 12) {
+                    $('#12').attr('class', 'col-1 list-group-item list-group-item-action list-group-item-dark');
+                    $('#12').next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
                     var k = 1;
                     while (currentHour > k) {
                         $('#' + k).attr('class', 'col-1 list-group-item list-group-item-action list-group-item-dark');
                         $('#' + k).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
                         k++;
                     }
+                }
+                if (currentHour = 12) {
+
                 }
             }
             retrieveData();
@@ -186,7 +188,9 @@
             allRows.children().removeClass('col-1').addClass('col-2');
             allRows.children().next().removeClass('col-10').removeClass('col-2').addClass('col-8')
             allRows.children().next().next().removeClass('col-8').addClass('col-2');
-        
+        }
+        if($(window).width() <= 600) {
+            $('button').removeClass('btn-lg').addClass('btn-md');
         }
 
     })
