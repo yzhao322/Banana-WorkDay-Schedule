@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day Planner</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+
+
+    <link rel="stylesheet" href="./Banana-Workday-Schedule.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer+SC&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <header>
+        <h1>Work Day Schedule</h1>
+        <h2></h2>
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-danger" id="9">9PM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-danger" id="10">10AM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-danger" id="11">11AM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-danger" id="12">12AM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-danger" id="1">1PM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-danger" id="2">2PM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-danger" id="3">3PM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-danger" id="4">4PM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 list-group-item list-group-item-action list-group-item-danger" id="5">5PM</div>
+            <div class="col-sm-10">
+                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+            <div class="col-sm-1"><button class="btn btn-dark btn-lg">save</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        var date = moment().subtract(10, 'days').calendar();
+        var day = moment().format('dddd');
+        var currentHour = moment().format('h');
+        var currentAMPM = moment().format('A');
+        var saveButton = $('button');
+        var scheduldEvent;
+
+        $('h2').append(date);
+        $('h2').append(" (" + day + ")");
+
+        $('input').attr('value', '');
+
+        function timeLineFilter() {
+            if (currentAMPM == "AM") {
+                var i = 9;
+                while (currentHour > i) {
+                    $('#' + i).attr('class', 'col-sm-1 list-group-item list-group-item-action list-group-item-dark');
+                    $('#' + i).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
+                    $('#' + i).next().next().children().attr('class', 'btn btn-secondary btn-lg');
+                    i++;
+                }
+            }
+            if (currentAMPM == "PM") {
+                var j = 12;
+                while (j >= 9) {
+                    $('#' + j).attr('class', 'col-sm-1 list-group-item list-group-item-action list-group-item-dark');
+                    $('#' + j).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
+                    $('#' + i).next().next().children().attr('class', 'btn btn-secondary btn-lg');
+                    j--;
+                }
+                var k = 1;
+                while (currentHour > k) {
+                    $('#' + k).attr('class', 'col-sm-1 list-group-item list-group-item-action list-group-item-dark');
+                    $('#' + k).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
+                    $('#' + i).next().next().children().attr('class', 'btn btn-secondary btn-lg');
+                    k++;
+                }
+            }
+            retrieveData();
+        }
+
+        $('input').on('keyup change', function () {
+            scheduldEvent = this.value;
+        });
+
+        saveButton.click(function (event) { //Upload the input to local storage
+            event.preventDefault();
+            var time = $(this).parent().prev().prev()[0].innerHTML; //the corresponding time of selected input
+            var schedule = { 'Time': time, 'scheduledevent': scheduldEvent };
+            localStorage.setItem('schedule' + time, JSON.stringify(schedule));
+        })
+
+        function retrieveData() {
+            var i = 9;
+            while (i <= 12) {
+                if (localStorage.getItem('schedule' + i + "AM") != null) {
+                    var storedSchedule = JSON.parse(localStorage.getItem('schedule' + i + "AM"));
+                    $('#' + i).next().children().attr('value', storedSchedule.scheduledevent);
+                }
+                else {
+
+                }
+                i++;
+            }
+
+        }
+        timeLineFilter();
+    })
+
+
+
+
+</script>
+
+</html>
