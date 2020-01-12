@@ -186,8 +186,15 @@
             var allRows = $('.row');
             allRows.children().removeClass('col-1').addClass('col-2');
             allRows.children().next().removeClass('col-10').removeClass('col-2').addClass('col-8')
-            allRows.children().next().next().removeClass('col-8');
+            allRows.children().next().next().removeClass('col-8').addClass('col-2');
         
+        }
+
+        if($(window).width() <= 600){
+            var allRows = $('.row');
+            allRows.children().removeClass('col-1').addClass('col-3');
+            allRows.children().next().removeClass('col-8').removeClass('col-3').addClass('col-6')
+            allRows.children().next().next().removeClass('col-6').addClass('col-3');
         }
 
 
