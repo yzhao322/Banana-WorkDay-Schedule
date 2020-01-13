@@ -19,10 +19,10 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
 
-
-    <link rel="stylesheet" href="./Banana-Workday-Schedule.css">
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=IM+Fell+Great+Primer+SC&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./Banana-Workday-Schedule.css">
 
 
 </head>
@@ -37,7 +37,7 @@
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="9">9AM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
@@ -46,56 +46,56 @@
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="10">10AM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="11">11AM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="12">12PM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="1">1PM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="2">2PM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="3">3PM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="4">4PM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="5">5PM</div>
             <div class="col-10">
-                <input class="list-group-item list-group-item-action list-group-item-warning"></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
@@ -118,7 +118,6 @@
 
         $('h2').append(date);
         $('h2').append(" (" + day + ")");
-        $('input').attr('value', '');
 
         function timeLineFilter() {
             if (currentAMPM == "AM") {
@@ -153,7 +152,7 @@
             retrieveData();
         }
 
-        $('input').on('keyup change', function () {
+        $('textarea').on('keyup change', function () {
             scheduldEvent = this.value;
         });
 
@@ -165,31 +164,55 @@
         })
 
         function retrieveData() {
+            if (localStorage.getItem('schedule12PM') != null){
+                    var storedSchedule = JSON.parse(localStorage.getItem('schedule12PM'));
+                    console.log(storedSchedule.scheduledevent);
+                    $('#12').next().children().append(storedSchedule.scheduledevent);
+            }
+            else{
+                
+            }
             var i = 9;
-            while (i <= 12) {
+            while (i <= 11) {
                 if (localStorage.getItem('schedule' + i + "AM") != null) {
-                    var storedSchedule = JSON.parse(localStorage.getItem('schedule' + i + "AM"));
-                    $('#' + i).next().children().attr('value', storedSchedule.scheduledevent);
+                    var storedScheduleAM = JSON.parse(localStorage.getItem('schedule' + i + "AM"));
+                    $('#' + i).next().children().append(storedScheduleAM.scheduledevent);
                 }
                 else {
 
                 }
                 i++;
             }
+            var k = 1;
+            while (k <= 5) {
+                if (localStorage.getItem('schedule' + k + "PM") != null){
+                    var storedSchedulePM = JSON.parse(localStorage.getItem('schedule' + k + "PM"));
+                    $('#' + k).next().children().append(storedSchedulePM.scheduledevent);
+                }
+                else{
+
+                }
+                k++;
+            }
 
         }
         timeLineFilter();
 
-        $('div').css('text-align','center');
-        $('.row').css('margin-bottom','10px');
+        //styling page
+        $('.row').css('margin-bottom', '10px');
+        $('.row').css('height', '100px');
+        $('textarea').css('height', '100px').css('font-family','IM Fell Great Primer SC , serif');
+        
+        $('button').css('height', '100px');
+        $('#1,#2,#3,#4,#5,#12,#11,#10,#9').css('text-align', 'center').css('padding-top','2.5em').css('font-weight','bold');
 
-        if ($(window).width() <= 800) {
+        if ($(window).width() <= 990) {
             var allRows = $('.row');
             allRows.children().removeClass('col-1').addClass('col-2');
             allRows.children().next().removeClass('col-10').removeClass('col-2').addClass('col-8')
             allRows.children().next().next().removeClass('col-8').addClass('col-2');
         }
-        if($(window).width() <= 600) {
+        if ($(window).width() <= 600) {
             $('button').removeClass('btn-lg').addClass('btn-md');
         }
 
