@@ -35,67 +35,67 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="9">9AM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="9">9AM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-info"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
 
 
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="10">10AM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="10">10AM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="11">11AM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="11">11AM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="12">12PM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="12">12PM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="1">1PM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="1">1PM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="2">2PM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="2">2PM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="3">3PM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="3">3PM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="4">4PM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="4">4PM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-1 list-group-item list-group-item-action list-group-item-danger" id="5">5PM</div>
+            <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="5">5PM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-warning"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
@@ -120,10 +120,13 @@
         $('h2').append(" (" + day + ")");
 
         function timeLineFilter() {
+            $('#' + currentHour).attr('class', 'col-1 list-group-item list-group-item-action list-group-item-danger');
+            $('#' + currentHour).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-warning');
             if (currentAMPM == "AM") {
                 var i = 9;
+                
                 while (currentHour > i) {
-                    $('#' + i).attr('class', 'col-sm-1 list-group-item list-group-item-action list-group-item-dark');
+                    $('#' + i).attr('class', 'col-1 list-group-item list-group-item-action list-group-item-dark');
                     $('#' + i).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
                     i++;
                 }
@@ -164,13 +167,13 @@
         })
 
         function retrieveData() {
-            if (localStorage.getItem('schedule12PM') != null){
-                    var storedSchedule = JSON.parse(localStorage.getItem('schedule12PM'));
-                    console.log(storedSchedule.scheduledevent);
-                    $('#12').next().children().append(storedSchedule.scheduledevent);
+            if (localStorage.getItem('schedule12PM') != null) {
+                var storedSchedule = JSON.parse(localStorage.getItem('schedule12PM'));
+                console.log(storedSchedule.scheduledevent);
+                $('#12').next().children().append(storedSchedule.scheduledevent);
             }
-            else{
-                
+            else {
+
             }
             var i = 9;
             while (i <= 11) {
@@ -185,11 +188,11 @@
             }
             var k = 1;
             while (k <= 5) {
-                if (localStorage.getItem('schedule' + k + "PM") != null){
+                if (localStorage.getItem('schedule' + k + "PM") != null) {
                     var storedSchedulePM = JSON.parse(localStorage.getItem('schedule' + k + "PM"));
                     $('#' + k).next().children().append(storedSchedulePM.scheduledevent);
                 }
-                else{
+                else {
 
                 }
                 k++;
@@ -201,10 +204,10 @@
         //styling page
         $('.row').css('margin-bottom', '10px');
         $('.row').css('height', '100px');
-        $('textarea').css('height', '100px').css('font-family','IM Fell Great Primer SC , serif');
-        
+        $('textarea').css('height', '100px').css('font-family', 'IM Fell Great Primer SC , serif');
+
         $('button').css('height', '100px');
-        $('#1,#2,#3,#4,#5,#12,#11,#10,#9').css('text-align', 'center').css('padding-top','2.5em').css('font-weight','bold');
+        $('#1,#2,#3,#4,#5,#12,#11,#10,#9').css('text-align', 'center').css('padding-top', '2.5em').css('font-weight', 'bold');
 
         if ($(window).width() <= 990) {
             var allRows = $('.row');
