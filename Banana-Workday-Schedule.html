@@ -29,15 +29,16 @@
 
 <body>
     <header>
-        <h1>Work Day Schedule</h1>
+        
+        <h1>Work Day Schedule<br></h1>
         <h2></h2>
     </header>
-
+    <hr>
     <div class="container">
         <div class="row">
             <div class="col-1 list-group-item list-group-item-action list-group-item-success" id="9">9AM</div>
             <div class="col-10">
-                <textarea class="list-group-item list-group-item-action list-group-item-info"></textarea></div>
+                <textarea class="list-group-item list-group-item-action list-group-item-success"></textarea></div>
             <div class="col-1"><button class="btn btn-dark btn-lg">save</button>
             </div>
         </div>
@@ -104,6 +105,8 @@
     </div>
 
     </div>
+
+    <hr>
 </body>
 <script>
 
@@ -115,16 +118,16 @@
         var currentAMPM = moment().format('A');
         var saveButton = $('button');
         var scheduldEvent;
-
-        $('h2').append(date);
-        $('h2').append(" (" + day + ")");
+       
+        $('h1').append(date);
+        $('h1').append( "  (" + day + ")");
 
         function timeLineFilter() {
             $('#' + currentHour).attr('class', 'col-1 list-group-item list-group-item-action list-group-item-danger');
             $('#' + currentHour).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-warning');
             if (currentAMPM == "AM") {
                 var i = 9;
-                
+
                 while (currentHour > i) {
                     $('#' + i).attr('class', 'col-1 list-group-item list-group-item-action list-group-item-dark');
                     $('#' + i).next().children().attr('class', 'list-group-item list-group-item-action list-group-item-dark');
@@ -202,7 +205,7 @@
         timeLineFilter();
 
         //styling page
-        $('.row').css('margin-bottom', '10px');
+        $('.row').css('margin-bottom', '20px');
         $('.row').css('height', '100px');
         $('textarea').css('height', '100px').css('font-family', 'IM Fell Great Primer SC , serif');
 
