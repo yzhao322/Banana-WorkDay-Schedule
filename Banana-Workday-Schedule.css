@@ -1,5 +1,5 @@
 body{
-    background-image: url(./source/bananas.png);
+    background-image: url(./source/015159f6457e986c59c386836e7eae71.jpg);
 
 }
 h1{
@@ -20,5 +20,12 @@ hr{
     background: rgb(71, 56, 55);
     border: 1;
 }
-
+@media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 30px;
+    }
+    hr{
+        height:5px;
+    }
+  }
   

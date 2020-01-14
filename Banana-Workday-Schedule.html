@@ -219,7 +219,9 @@
             allRows.children().next().next().removeClass('col-8').addClass('col-2');
         }
         if ($(window).width() <= 600) {
-            $('button').removeClass('btn-lg').addClass('btn-md');
+            $('button').removeClass('btn-lg').addClass('btn-sm');
+            $('.row').css('margin-left', '1px');
+            $('#1,#2,#3,#4,#5,#12,#11,#10,#9').css('padding-left', '10px');
         }
 
     })
