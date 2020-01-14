@@ -4,7 +4,7 @@
 
 * This is simple Work Day Planner Application that would allow user to manage their work time from 9 to 5.  the colored theme inspired by Banana. 
 
-<img src="source/screen-shot.png" >
+<img src="source/demo.png" >
 
 * Both passed time block and passed schedule event block will be represented by grey. 
 * Current time block will be represented by hot pink and current schedule event block will be represented by yellow.
